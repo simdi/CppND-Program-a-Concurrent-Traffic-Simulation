@@ -16,14 +16,13 @@ class Vehicle;
 // Also, the class should define an std::dequeue called _queue, which stores objects of type TrafficLightPhase. 
 // Also, there should be an std::condition_variable as well as an std::mutex as private members. 
 
-template <class TrafficLightPhase>
+template <class T>
 class MessageQueue {
 public:
-  void send(TrafficLightPhase &&msg);
-  TrafficLightPhase receive();
+  void send(T &&msg);
+  T receive();
 private:
-  MessageQueue
-  std::dequeue<TrafficLightPhase> _queue;
+  std::deque<T> _queue;
   std::condition_variable _condition;
   std::mutex _mutex;
 };
