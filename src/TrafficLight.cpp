@@ -84,7 +84,7 @@ void TrafficLight::cycleThroughPhases() {
     std::this_thread::sleep_for(std::chrono::milliseconds(1));
 
     std::chrono::system_clock::time_point t2 = std::chrono::system_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(t2-t1).count();
+    auto duration = std::chrono::duration_cast<std::chrono::seconds>(t2-t1).count();
     
     if(duration >= cycleDuration){
       _currentPhase = (_currentPhase == red) ? green : red;
